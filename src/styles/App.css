@@ -1,0 +1,196 @@
+/* Make the whole page use flex layout to center horizontally */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e2f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.weather-card {
+  background-color: #2a2a3d;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  width: 1000px;
+  
+  margin: 0 auto;
+}
+
+.weather-card-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.weather-card input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.weather-card button {
+  padding: 0.6rem 1rem;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fav-btn {
+  font-size: 1.5rem;
+  color: gold;
+  background: none;
+  border: none;
+}
+
+.weather-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.weather-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.weather-col p {
+  margin: 0.5rem 0;
+}
+
+/* App column container */
+.app {
+  width: 100%;
+  padding: 2rem 1rem;
+  justify-content: center;
+}
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+}
+.search-bar-container {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions-list {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.suggestions-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions-list li {
+  padding: 0.6rem;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+}
+
+.suggestions-list li:hover {
+  background-color: #555;
+}
+
+.weather-card button {
+  padding: 0.6rem 1rem;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.weather-card button:hover {
+  background-color: #666;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.weather-card {
+  background-color: #2a2a3d;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.weather-card input {
+  width: 70%;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: gold;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
