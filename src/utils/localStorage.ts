@@ -1,25 +1,20 @@
-// src/utils/localStorage.ts
+const STORAGE_KEY = "weather_favorites";
 
-const FAVORITES_KEY = "weatherAppFavorites";
+export type Favorite = { name: string };
 
-export const getFavorites = (): { name: string }[] => {
-  const stored = localStorage.getItem(FAVORITES_KEY);
-  return stored ? JSON.parse(stored) : [];
-};
+export function getFavorites(): Favorite[] {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  return stored ? JSON.parse(stored) as Favorite[] : [];
+}
 
-export const saveFavorites = (favs: { name: string }[]) => {
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs));
-};
-
-export const addFavorite = (city: { name: string }) => {
+export function addFavorite(city: Favorite): void {
   const current = getFavorites();
-  if (!current.find(f => f.name === city.name)) {
-    current.push(city);
-    saveFavorites(current);
+  if (!current.some((c: Favorite) => c.name === city.name)) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...current, city]));
   }
-};
+}
 
-export const removeFavorite = (cityName: string) => {
-  const updated = getFavorites().filter(f => f.name !== cityName);
-  saveFavorites(updated);
-};
+export function removeFavorite(name: string): void {
+  const updated = getFavorites().filter((c: Favorite) => c.name !== name);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+}

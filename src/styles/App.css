@@ -1,4 +1,5 @@
-/* Make the whole page use flex layout to center horizontally */
+
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +10,23 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+.back-btn {
+  margin: 20px;
+  padding: 10px 16px;
+  background-color: #2a2a3d; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  justify-self: center;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #1e40af; 
+}
+
 .weather-card {
   background-color: #2a2a3d;
   padding: 1.5rem;
@@ -65,7 +83,56 @@ body {
   margin: 0.5rem 0;
 }
 
-/* App column container */
+.forecast-days {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: 1rem;
+  gap: 1rem;
+  scroll-behavior: smooth;
+}
+
+.forecast-day {
+  flex: 0 0 auto;
+  background-color: #1e1e2f6e;
+  border-radius: 12px;
+  padding-top: 10px;
+    padding-bottom: 10px;
+
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+
+
+.forecast-day img {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+}
+.forecast-date {
+  
+  font-size: 1.1rem;
+}
+
+.forecast-temp {
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.forecast-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0.2rem 0;
+}
+
+.forecast-day p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
 .app {
   width: 100%;
   padding: 2rem 1rem;
@@ -174,6 +241,7 @@ button {
   padding: 1rem;
   border-radius: 8px;
   position: relative;
+  margin-bottom: 1.5rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
