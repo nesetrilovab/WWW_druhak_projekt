@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+# 🌤️ Weather Compare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Weather Compare** je moderní React + TypeScript aplikace na počasí, která umožňuje svým uživatelům:
 
-Currently, two official plugins are available:
+- 🔍 Vyhledat a zhlédnout počasí ve městech po celém světě
+- ⭐ Uložit si oblíbené lokace a zhlédnout je na samostatné stránce
+- 📊 Porovnávat předpověď počasí pro více lokalit
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikace používá `WeatherAPI.com` pro "live" informace o počasí. Pro ukládání oblíbených lokací používá Local Storage.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧭 Stránky & Featury
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### `/` Home Page
+- Zhlédnout karty s informacemi o počasí pro více měst najednou
+- Dynamické přidávání nových karet
+- Označit lokaci jako oblíbenou
+- Přesměrovat na oblíbené a předpovědi
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### `/favorites` Favorites Page
+- Zhlédnout "live" informace o počasí pro oblíbená města
+- Karty se updatují skrz API 
+- Každý "oblíbenec" je schovaný v `localStorage`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### `/forecast` Forecast Page
+- Dynamické přidávání nových karet
+- Zhlédnout předpověď pro libovolná města (průměrná teplota)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Základní logika
+- Na každé stránce jsou navigační tlačítka, která přesměrují uživatele
+- Neomezený počet karet pro porovnání počasí
+- Ve vyhledávacím řádku funguje tzv. "suggestion completion", tedy aplikace uživateli nabízí platné možnosti
+- tzn. je zde event handler onKeyDown(), který po každém úhozu zavolá metodu, která fetchuje návrhy
+- Po stisknutí tlačítka "search" nebo klávesy enter se fetchnou data z api podle zadané lokace
+- Předpověď počasí funguje obdobně

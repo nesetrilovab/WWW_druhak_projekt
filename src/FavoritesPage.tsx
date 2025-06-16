@@ -1,14 +1,14 @@
-// src/FavoritesPage.tsx
 import React, { useEffect, useState } from "react";
 import { getFavorites } from "./utils/localStorage";
 import type { Favorite } from "./utils/localStorage";
 import { useNavigate } from "react-router-dom";
 import FavoriteCard from "./components/FavoritesCard";
+import type { WeatherApiResponse } from "../types"
 
 const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const FavoritesPage: React.FC = () => {
-  const [weatherData, setWeatherData] = useState<any[]>([]);
+  const [weatherData, setWeatherData] = useState<WeatherApiResponse>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -45,14 +45,14 @@ const FavoritesPage: React.FC = () => {
 
     fetchWeatherForFavorites();
   }, []);
-return (
+  return (
     <div className="app">
       <header>
         <h1>Favorites</h1>
         <div className="controls">
           <button onClick={() => navigate("/")}>
-          ⬅ Back to Main
-        </button>
+            ⬅ Back to Main
+          </button>
         </div>
       </header>
 
@@ -67,7 +67,7 @@ return (
       </div>
     </div>
   );
-  
+
 };
 
 export default FavoritesPage;

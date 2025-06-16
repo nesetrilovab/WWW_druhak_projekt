@@ -1,4 +1,4 @@
-import { BrowserRouter, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useState } from "react";
 import ForecastCard from "./components/ForecastCard";
 import "./styles/App.css"

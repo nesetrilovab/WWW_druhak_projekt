@@ -1,4 +1,4 @@
-
+@import "tailwindcss";
 
 body {
   margin: 0;
@@ -10,10 +10,11 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .back-btn {
   margin: 20px;
   padding: 10px 16px;
-  background-color: #2a2a3d; 
+  background-color: #2a2a3d;
   color: white;
   border: none;
   border-radius: 8px;
@@ -24,7 +25,7 @@ body {
 }
 
 .back-btn:hover {
-  background-color: #1e40af; 
+  background-color: #1e40af;
 }
 
 .weather-card {
@@ -32,8 +33,8 @@ body {
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  width: 1000px;
-  
+  width: 100%;
+
   margin: 0 auto;
 }
 
@@ -72,6 +73,7 @@ body {
   gap: 2rem;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-width: 1000px;
 }
 
 .weather-col {
@@ -92,12 +94,22 @@ body {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 640px) {
+  .forecast-days {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    overflow-x: unset; /* disable horizontal scroll on mobile */
+  }
+}
+
+
 .forecast-day {
   flex: 0 0 auto;
   background-color: #1e1e2f6e;
   border-radius: 12px;
   padding-top: 10px;
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 
   min-width: 120px;
   text-align: center;
@@ -111,8 +123,9 @@ body {
   height: 40px;
   margin: 4px;
 }
+
 .forecast-date {
-  
+
   font-size: 1.1rem;
 }
 
@@ -136,13 +149,16 @@ body {
 .app {
   width: 100%;
   padding: 2rem 1rem;
+  max-width: 750px;
   justify-content: center;
 }
+
 .search-wrapper {
   position: relative;
   width: 100%;
   flex: 1;
 }
+
 .search-bar-container {
   position: relative;
   width: 100%;
@@ -242,7 +258,7 @@ button {
   border-radius: 8px;
   position: relative;
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .weather-card input {

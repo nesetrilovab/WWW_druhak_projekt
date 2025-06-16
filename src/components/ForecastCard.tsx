@@ -22,7 +22,7 @@ const ForecastCard: React.FC<ForecastCardProps> = ({ data }) => {
   const [forecast, setForecast] = useState<DailyForecast[] | null>(null);
 
   const [error, setError] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [, setSelectedCity] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
 
