@@ -136,7 +136,7 @@ const handleSearch = async (input?: string) => {
      {forecast && (
   <div className="forecast-days">
     {forecast.map((day, index) => (
-      <div key={index} className="forecast-day">
+      <div key={index} className="forecast-day flex flex-col items-center">
         <p className="forecast-date">
   {new Date(day.date).toLocaleDateString("cs-CZ", {
     day: "2-digit",

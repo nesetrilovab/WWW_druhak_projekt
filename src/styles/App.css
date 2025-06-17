@@ -110,7 +110,6 @@ body {
   border-radius: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
-
   min-width: 120px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -136,8 +135,8 @@ body {
 }
 
 .forecast-icon {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   margin: 0.2rem 0;
 }
 
